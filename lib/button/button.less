@@ -1,0 +1,200 @@
+@import '../variables.less';
+
+//button
+@ui_button_borderWidth: @ui_border_width;
+@ui_button_borderRadius: @ui_border_radius;
+@ui_button_textColorDefault: #fff;
+@ui_button_backgroundColorDefault: #94C948;
+@ui_button_fontWeight: normal;
+
+@transition: border-color .25s, color .25s, background-color .25s, opacity .25s;
+
+a[href].ui__button,
+.ui__button{
+
+    position: relative;
+    border:0 none;
+    user-select:none;
+    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-decoration: none;
+    font: inherit;
+    font-weight: @ui_button_fontWeight;
+    background: transparent;
+    color: inherit;
+    display: inline-block;
+    -webkit-appearance:none;
+    appearance:none;
+    vertical-align: baseline;
+    color:inherit;
+ 
+    padding: @ui_padding;
+    padding-left: ~'calc(@{ui_padding} * @{ui_padding_horizontal_ratio})';
+    padding-right: ~'calc(@{ui_padding} * @{ui_padding_horizontal_ratio})';
+    border-radius: @ui_border_radius;
+ 
+    transition: @transition;
+
+    margin-right: 1em;
+    
+    &.block{
+        width: 100%;
+        margin-right: 0;
+    }
+
+    &:last-child{
+        margin-right: 0;
+    }
+
+    &:active:not(.disabled){
+        opacity:.80;
+    }
+
+    &:before{
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border-radius: @ui_border_radius;
+        background-color:currentColor;
+        opacity: .10;
+        transition: @transition;
+    }
+
+    &:hover{
+        color: inherit;
+        text-decoration: none;
+    }
+    &:hover:not(.disabled){
+        opacity:.85;
+        text-decoration: none;
+    }
+
+    &:focus{
+        outline: 0 none;
+    }
+
+    .label{
+        line-height: inherit;
+        vertical-align: top;
+    }
+
+}
+
+
+.ui__button.collapseMargin{
+    margin:0;
+}
+
+
+
+a[href].ui__button.primary,
+.ui__button.primary{
+    color:@ui_color_primary_reverse;
+    background-color: @ui_color_primary;
+    &.outline{
+        color: @ui_color_primary;
+        &:after{
+            opacity: 1;
+            border-color: @ui_color_primary;
+        }
+        &:hover:not(.disabled){
+            background-color: transparent;
+            color:@ui_color_primary;
+            border-color: @ui_color_primary;
+            &:before{
+                opacity: .20;
+            }
+        }
+    }
+    &.chromeless{
+        color:@ui_color_primary;
+        &:hover:not(.disabled){
+            color: @ui_color_primary;
+        }
+    }
+
+/*    &.chromeless{
+        color: @ui_color_primary;
+        &:after{
+            opacity: 1;
+            border-color: @ui_color_primary;
+        }
+        &:hover:not(.disabled){
+            background-color: transparent;
+            color:@ui_color_primary;
+            border-color: @ui_color_primary;
+            &:before{
+                opacity: .15;
+            }
+        }
+    }*/
+}
+
+a[href].ui__button.disabled,
+.ui__button.disabled{
+    opacity: .35;
+    cursor: default;
+
+    &.outline:after{
+        opacity: 1;
+    }
+}
+
+a[href].ui__button.outline,
+.ui__button.outline{
+    //color:inherit;
+    background-color: transparent;
+
+    &:before{
+        opacity: 0;
+    }
+    &:after{
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border-radius: @ui_border_radius;
+        border:@ui_button_borderWidth solid currentColor;
+        opacity: 1;
+        transition: @transition;
+    }
+    &:hover:not(.disabled){
+        background-color: transparent;
+        color:inherit;
+        border-color: transparent;
+        &:before{
+            opacity: .15;
+        }
+    }
+
+}
+
+a[href].ui__button.chromeless,
+.ui__button.chromeless{
+    //color:inherit;
+    background-color: transparent;
+
+    &:before{
+        opacity: 0;
+    }
+    &:after{
+        display: none;
+    }
+    &:hover:not(.disabled){
+        background-color: transparent;
+        //color:inherit;
+        border-color: transparent;
+        &:before{
+            opacity: .05;
+        }
+    }
+
+}

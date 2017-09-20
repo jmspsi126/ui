@@ -1,0 +1,50 @@
+{
+  "name": "ui",
+  "version": "1.3.7",
+  "dependencies": {
+    "classnames": "^2.2.1",
+    "deep-equal": "^1.0.1",
+    "gsap": "^1.18.0",
+    "inputmask-core": "^2.1.1",
+    "lunr": "^0.5.12",
+    "moment": "^2.10.6",
+    "moment-range": "2.2.0",
+    "react": "^15.4.2",
+    "react-addons-transition-group": "*",
+    "react-dom": "^15.4.2",
+    "react-input-mask": "^0.7.7",
+    "react-masked-field": "^1.0.0",
+    "react-maskedinput": "^3.3.4",
+    "react-remarkable": "^1.1.1",
+    "underscore": "^1.8.3"
+  },
+  "scripts": {
+    "transpile": "babel src --out-dir lib",
+    "copy": "cpy **/*.* !**/*.js ../lib --cwd=src --parents",
+    "build": "npm run transpile && npm run copy",
+    "docs": "documentation build src/index.js -o docs/ -f html --shallow",
+    "watch": "webpack --watch --progress --hide-modules ",
+    "stats": "discify js/standalone.js > stats.html --open"
+  },
+  "main": "lib/index.js",
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.2",
+    "babel-plugin-transform-decorators": "*",
+    "babel-preset-es2015": "*",
+    "babel-preset-react": "*",
+    "babel-preset-stage-0": "*",
+    "color": "^0.10.1",
+    "cpy-cli": "^1.0.0",
+    "css-loader": "^0.26.1",
+    "extract-text-webpack-plugin": "2.0.0",
+    "file-loader": "^0.8.5",
+    "glob": "^7.0.6",
+    "html-webpack-plugin": "^2.17.0",
+    "json-loader": "^0.5.4",
+    "less": "^2.7.2",
+    "less-loader": "^2.2.4",
+    "webpack": "^2.2.1"
+  }
+}

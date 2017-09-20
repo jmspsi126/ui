@@ -1,0 +1,25 @@
+@import (reference) '../variables.less';
+@import '../styles.less';
+@import '../text-field/text-field.less';
+
+.ui__container{
+
+    .common();
+    .inlineBlock();
+    position: relative;
+    vertical-align: top;
+    text-align: left;
+
+    padding: ~'calc(@{ui_padding} - (@{ui_Textfield_Border_Width}))';
+    padding-left: 0;
+    padding-right: 0;
+
+    &.block{
+        display: block;
+    }
+
+    &.disabled{
+        opacity: .35;
+        cursor: default;
+    }
+} 

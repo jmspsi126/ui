@@ -1,0 +1,27 @@
+@base: 16;
+@base-em: unit(@base, em);
+@pxem: 1em/@base;
+@rem: (1/@base);
+@em: @base*1em;
+@r: unit(@rem, rem);
+
+@ui_padding: .5em;
+@ui_horizontal_padding_factor: 2;
+@ui_padding_horizontal_ratio: 2;
+@ui_line_height: 1em;
+@ui_border_radius: 3px;
+@ui_border_width: 1px;
+@ui_border_color: #ccc;
+@ui_color_primary: #0469b1;
+@ui_color_primary_reverse: #fff;
+@ui_color_error: #fd2d53;
+@ui_color_error_reverse: #fff;
+@ui_verticalMargin: 1.5em;
+@ui_border_opacity_normal:.5;
+@ui_border_opacity_hover: .75;
+
+/* deprecated */
+@uiColorPrimary: @ui_color_primary;
+@uiElementPadding: 1em;
+@ui-border-opacity-normal: @ui_border_opacity_normal;
+@ui-border-opacity-hover: @ui_border_opacity_hover;

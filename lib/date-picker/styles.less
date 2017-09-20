@@ -1,0 +1,53 @@
+@import (reference) '../variables.less';
+@import '../styles.less';
+
+.ui-date-picker{
+
+    .common();
+    .inlineBlock();
+    position: relative;
+    vertical-align: baseline;
+
+    &:not(.block){
+        margin-right: 1em;
+    }
+    &.block{
+        width:100%;
+    }
+
+    &.disabled{
+        opacity: .35;
+        cursor: default;
+    }
+
+} 
+.ui-date-picker__popup{
+    width: 150px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    transition: visibility .25s, opacity .15s, transform .15s;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate3d(0, 1em, 0);
+}
+.ui-date-picker__popup-inside{
+    min-width: @r*300;
+    max-width: @r*350;
+    background-color: #fff;
+    //box-shadow: 0px 2px 10px fade(#000, 10%);
+    margin-top: .25em;
+    //padding-top: .5em;
+    border:@ui_border_width solid @ui_color_primary;
+    border-radius: @ui_border_radius;
+    // color: @ui_color_primary_reverse;
+    // background-color: @ui_color_primary;
+}
+.ui-date-picker__popup__visible{
+    visibility: visible;
+    pointer-events: auto;
+    opacity: 1;
+    transform: translate3d(0, 0em, 0);
+}

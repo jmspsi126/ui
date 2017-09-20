@@ -1,0 +1,23 @@
+@import (reference) '../variables.less';
+@import '../styles.less';
+
+.ui__label{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+
+    .text{
+        display: inline-block;
+        position: relative;
+        padding-bottom: .5em;
+        padding-left: 0;
+        padding-right: 0;
+        pointer-events: all;
+        width: 100%;
+    }
+
+    &.required .text:after{
+        content: '*';
+        color:@ui_color_error;
+    }
+}

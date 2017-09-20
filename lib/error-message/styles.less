@@ -1,0 +1,26 @@
+@import (reference) '../variables.less';
+
+.ui__error-message{
+    color: @ui_color_error;
+    font-size: .75em;
+    font-weight: bold;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    display: flex;
+}
+.ui__error-message__icon{
+    padding-right: .5em;
+    span{
+        box-sizing: border-box;
+        padding-top: .25em;
+        display: inline-block;
+        background-color: @ui_color_error;
+        color: @ui_color_error_reverse;
+        width: 1.5em;
+        height: 1.5em;
+        line-height: 1;
+        border-radius: 100%;
+        text-align: center;
+        vertical-align: baseline;
+    }
+}

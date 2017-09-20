@@ -1,0 +1,444 @@
+/* deprecated */
+.ui-checkbox {
+  display: inline-block;
+  position: relative;
+  vertical-align: baseline;
+}
+.ui-checkbox.ui-checkbox-block {
+  width: 100%;
+}
+.ui-checkbox.ui-checkbox-block .ui-checkbox__label {
+  width: 100%;
+}
+.ui-checkbox__inside {
+  display: flex;
+}
+.ui-checkbox__label-wrap {
+  display: block;
+}
+.ui-checkbox__label {
+  user-select: none;
+  padding: 0.5em;
+  padding-left: .5em;
+  padding-right: 1em;
+}
+.ui-checkbox__label-wrap:hover .ui-checkbox__inside .ui-checkbox__icon span::before {
+  opacity: 1;
+}
+.ui-checkbox__input:focus ~ .ui-checkbox__inside .ui-checkbox__icon span::before {
+  opacity: 1;
+  border-color: #0469b1;
+}
+.ui-checkbox__icon {
+  display: block;
+  width: 1.5em;
+  position: relative;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+.ui-checkbox__icon::after {
+  content: "\A0";
+}
+.ui-checkbox__icon span {
+  display: block;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  padding-top: 100%;
+  margin-top: -0.75em;
+  box-sizing: border-box;
+}
+.ui-checkbox__icon span::before {
+  box-sizing: border-box;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.5;
+  transition: .25s;
+}
+.ui-checkbox__icon span::after {
+  content: '';
+  width: 0.375em;
+  height: .75em;
+  border: 1px solid currentColor;
+  border-top: 0;
+  border-left: 0;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -0.5em;
+  margin-left: -0.2em;
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: .25s;
+}
+.ui-checkbox__input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.ui-checkbox__input:checked ~ .ui-checkbox__inside .ui-checkbox__icon span::before {
+  background-color: #0469b1;
+  border-color: #0469b1;
+  opacity: 1;
+}
+.ui-checkbox__input:checked ~ .ui-checkbox__inside .ui-checkbox__icon span::after {
+  color: #fff;
+  opacity: 1;
+}
+/* deprecated */
+a[href].ui__button,
+.ui__button {
+  position: relative;
+  border: 0 none;
+  user-select: none;
+  text-align: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-decoration: none;
+  font: inherit;
+  font-weight: normal;
+  background: transparent;
+  display: inline-block;
+  -webkit-appearance: none;
+  appearance: none;
+  vertical-align: baseline;
+  color: inherit;
+  padding: 0.5em;
+  padding-left: calc(0.5em * 2);
+  padding-right: calc(0.5em * 2);
+  border-radius: 3px;
+  transition: border-color 0.25s, color 0.25s, background-color 0.25s, opacity 0.25s;
+  margin-right: 1em;
+}
+a[href].ui__button.block,
+.ui__button.block {
+  width: 100%;
+  margin-right: 0;
+}
+a[href].ui__button:last-child,
+.ui__button:last-child {
+  margin-right: 0;
+}
+a[href].ui__button:active:not(.disabled),
+.ui__button:active:not(.disabled) {
+  opacity: .80;
+}
+a[href].ui__button:before,
+.ui__button:before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 3px;
+  background-color: currentColor;
+  opacity: .10;
+  transition: border-color 0.25s, color 0.25s, background-color 0.25s, opacity 0.25s;
+}
+a[href].ui__button:hover,
+.ui__button:hover {
+  color: inherit;
+  text-decoration: none;
+}
+a[href].ui__button:hover:not(.disabled),
+.ui__button:hover:not(.disabled) {
+  opacity: .85;
+  text-decoration: none;
+}
+a[href].ui__button:focus,
+.ui__button:focus {
+  outline: 0 none;
+}
+a[href].ui__button .label,
+.ui__button .label {
+  line-height: inherit;
+  vertical-align: top;
+}
+.ui__button.collapseMargin {
+  margin: 0;
+}
+a[href].ui__button.primary,
+.ui__button.primary {
+  color: #fff;
+  background-color: #0469b1;
+  /*    &.chromeless{
+        color: @ui_color_primary;
+        &:after{
+            opacity: 1;
+            border-color: @ui_color_primary;
+        }
+        &:hover:not(.disabled){
+            background-color: transparent;
+            color:@ui_color_primary;
+            border-color: @ui_color_primary;
+            &:before{
+                opacity: .15;
+            }
+        }
+    }*/
+}
+a[href].ui__button.primary.outline,
+.ui__button.primary.outline {
+  color: #0469b1;
+}
+a[href].ui__button.primary.outline:after,
+.ui__button.primary.outline:after {
+  opacity: 1;
+  border-color: #0469b1;
+}
+a[href].ui__button.primary.outline:hover:not(.disabled),
+.ui__button.primary.outline:hover:not(.disabled) {
+  background-color: transparent;
+  color: #0469b1;
+  border-color: #0469b1;
+}
+a[href].ui__button.primary.outline:hover:not(.disabled):before,
+.ui__button.primary.outline:hover:not(.disabled):before {
+  opacity: .20;
+}
+a[href].ui__button.primary.chromeless,
+.ui__button.primary.chromeless {
+  color: #0469b1;
+}
+a[href].ui__button.primary.chromeless:hover:not(.disabled),
+.ui__button.primary.chromeless:hover:not(.disabled) {
+  color: #0469b1;
+}
+a[href].ui__button.disabled,
+.ui__button.disabled {
+  opacity: .35;
+  cursor: default;
+}
+a[href].ui__button.disabled.outline:after,
+.ui__button.disabled.outline:after {
+  opacity: 1;
+}
+a[href].ui__button.outline,
+.ui__button.outline {
+  background-color: transparent;
+}
+a[href].ui__button.outline:before,
+.ui__button.outline:before {
+  opacity: 0;
+}
+a[href].ui__button.outline:after,
+.ui__button.outline:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 3px;
+  border: 1px solid currentColor;
+  opacity: 1;
+  transition: border-color 0.25s, color 0.25s, background-color 0.25s, opacity 0.25s;
+}
+a[href].ui__button.outline:hover:not(.disabled),
+.ui__button.outline:hover:not(.disabled) {
+  background-color: transparent;
+  color: inherit;
+  border-color: transparent;
+}
+a[href].ui__button.outline:hover:not(.disabled):before,
+.ui__button.outline:hover:not(.disabled):before {
+  opacity: .15;
+}
+a[href].ui__button.chromeless,
+.ui__button.chromeless {
+  background-color: transparent;
+}
+a[href].ui__button.chromeless:before,
+.ui__button.chromeless:before {
+  opacity: 0;
+}
+a[href].ui__button.chromeless:after,
+.ui__button.chromeless:after {
+  display: none;
+}
+a[href].ui__button.chromeless:hover:not(.disabled),
+.ui__button.chromeless:hover:not(.disabled) {
+  background-color: transparent;
+  border-color: transparent;
+}
+a[href].ui__button.chromeless:hover:not(.disabled):before,
+.ui__button.chromeless:hover:not(.disabled):before {
+  opacity: .05;
+}
+html {
+  --ui-color-primary: #0469b1;
+  --ui-color-primary-reverse: #fff;
+  --ui-padding: 0.5em;
+  --ui-border-opacity-normal: 0.5;
+  --ui-border-opacity-hover: 0.75;
+  --ui-border-radius: 3px;
+  --ui-padding-horizontal-ratio: 2;
+}
+.ui-text-field {
+  display: inline-block;
+  position: relative;
+  vertical-align: baseline;
+}
+.ui-text-field,
+.ui-text-field * {
+  box-sizing: border-box;
+}
+.ui-text-field :before,
+.ui-text-field * :before,
+.ui-text-field :after,
+.ui-text-field * :after {
+  box-sizing: border-box;
+}
+.ui-text-field:focus {
+  outline: 0 none;
+}
+.ui-text-field:not(.block) {
+  margin-right: 1em;
+}
+.ui-text-field.block {
+  width: 100%;
+}
+.ui-text-field.disabled {
+  opacity: .35;
+  cursor: default;
+}
+.ui-text-field__inside {
+  display: block;
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+}
+.ui-text-field__label {
+  display: inline-block;
+  position: relative;
+  padding-bottom: .5em;
+  padding-left: 0;
+  padding-right: 0;
+  pointer-events: all;
+}
+.ui-text-field__fieldContainer {
+  position: relative;
+}
+.ui-text-field.hasPrefix .ui-text-field__prefix {
+  line-height: inherit;
+  padding: calc( 0.5em - (1px));
+  padding-left: calc( 0.5em * 2);
+  padding-right: 0;
+  border: 1px solid transparent;
+  border-left: 0;
+  border-right: 0;
+}
+.ui-text-field.hasPrefix .ui-text-field__field {
+  padding-left: .25em;
+}
+.ui-text-field.hasPrefix .ui-text-field__fieldContainer {
+  display: flex;
+}
+.ui-text-field__fieldFrame {
+  pointer-events: none;
+  position: absolute;
+  display: block;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0.5;
+  transition: .25s;
+}
+.ui-text-field__field {
+  color: inherit;
+  border-radius: 0;
+  font-size: inherit;
+  box-sizing: border-box;
+  appearance: none;
+  text-align: inherit;
+  font-family: inherit;
+  width: 100%;
+  padding: calc( 0.5em - (1px));
+  padding-left: calc( 0.5em * 2);
+  padding-right: calc( 0.5em * 2);
+  border: 0 none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  pointer-events: all;
+  line-height: inherit;
+  box-shadow: 0 none;
+  resize: vertical;
+}
+.ui-text-field__field:required {
+  box-shadow: none !important;
+}
+.ui-text-field__field:invalid {
+  box-shadow: 0 none !important;
+}
+.ui-text-field__field:hover ~ .ui-text-field__fieldFrame {
+  opacity: 0.75;
+}
+.ui-text-field__field:focus {
+  outline: 0 none;
+}
+.ui-text-field__field:focus ~ .ui-text-field__fieldFrame {
+  opacity: 1;
+  border-color: #0469b1;
+}
+.ui-text-field__field::input-placeholder {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+.ui-text-field__field[type="password"] {
+  letter-spacing: 1px;
+}
+.ui-text-field__field[type="password"]::input-placeholder {
+  letter-spacing: normal;
+}
+.ui-text-field__field[type="search"] {
+  box-sizing: inherit;
+  appearance: inherit;
+}
+.ui-text-field.error .ui-text-field__fieldFrame {
+  border-color: #fd2d53;
+}
+.ui__container {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  text-align: left;
+  padding: calc(0.5em - (1px));
+  padding-left: 0;
+  padding-right: 0;
+}
+.ui__container,
+.ui__container * {
+  box-sizing: border-box;
+}
+.ui__container :before,
+.ui__container * :before,
+.ui__container :after,
+.ui__container * :after {
+  box-sizing: border-box;
+}
+.ui__container:focus {
+  outline: 0 none;
+}
+.ui__container.block {
+  display: block;
+}
+.ui__container.disabled {
+  opacity: .35;
+  cursor: default;
+}

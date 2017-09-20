@@ -1,0 +1,192 @@
+@import (reference) '../variables.less';
+@import '../styles.less';
+
+@uiSelectBorderWidth: @ui_border_width;
+@uiSelectBorderColor: currentColor;
+@uiSelectBorderRadius: @ui_border_radius;
+@uiSelectFocusBorderColor: @uiColorPrimary;
+
+.ui-select-field{
+
+    .common();
+    .inlineBlock();
+    position: relative;
+    vertical-align: baseline;
+    display: inline-block !important;
+    
+    &.block{
+        width: 100%;
+    }
+
+    &.disabled{
+        opacity: .35;
+        cursor: default;
+    }
+
+    &__inside{
+        display: block;
+        position: relative;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    &__label{
+        display: inline-block;
+        position: relative;
+        padding-bottom: .5em;
+        padding-left: 0;
+        padding-right: 0;
+        pointer-events: all;
+    }
+
+    &.required &__label:after{
+        content: '*';
+        color:@ui_color_error;
+    }
+
+    &__fieldContainer{
+        position: relative;
+    }
+
+    &__dropDownIndicator{
+        line-height: 1;
+        color:  @uiSelectBorderColor;
+        content:'';
+        width: .5em;
+        height: .5em;
+        position: absolute;
+        right: .2em;
+        top: 50%;
+        margin-top: -.35em;
+        margin-right: @ui_padding * 2;
+        border-bottom: @uiSelectBorderWidth solid currentColor;
+        border-right: @uiSelectBorderWidth solid currentColor;
+        transform: rotate(45deg);
+        pointer-events: none;
+        opacity: @ui_border_opacity_normal;
+        transition: .25s;
+    }
+    &__field:hover ~ &__dropDownIndicator{
+        opacity: @ui_border_opacity_hover;
+    }
+    &__field:focus ~ &__dropDownIndicator{
+        opacity: 1;
+        color: @ui_color_primary;
+    }
+
+    &__fieldContainer:hover:after{
+        color: @ui_color_primary;
+    }
+
+    &__fieldFrame{
+        pointer-events: none;
+        position: absolute;
+        display: block;
+        border:@uiSelectBorderWidth solid @uiSelectBorderColor;
+        border-radius: @uiSelectBorderRadius;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        opacity: @ui_border_opacity_normal;
+        transition: .25s;
+    }
+
+
+    &__dummyInput{
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &__field{
+        border:0 none;
+        border-radius: 0;
+        font-size:inherit;
+        box-sizing:border-box;
+        -webkit-appearance:none;
+        -moz-appearance:none;
+        -ms-appearance:none;
+        appearance:none;
+        margin:0;
+
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        
+        font-family: inherit;
+        color:inherit;
+        width: 100%;
+        padding: ~'calc(@{ui_padding} - (@{uiSelectBorderWidth}))';
+        padding-left: ~'calc( @{ui_padding} * 2)';
+        padding-right: ~'calc( @{ui_padding} * 2) + 1em )';
+        padding-top: 0;
+        padding-bottom: 0;
+        border:0 none;
+        background-color: transparent;
+        border:@uiSelectBorderWidth solid transparent;
+        border-radius: @uiSelectBorderRadius;
+        pointer-events: all;
+        transition: border .25s;
+        line-height: inherit;
+        box-shadow: 0 none;
+        text-align: inherit;
+
+        &:required {
+            box-shadow:none !important;
+        }
+        &:invalid {
+            box-shadow:0 none !important;
+        }
+
+        &:hover ~ .ui-select-field__fieldFrame{
+            opacity: @ui_border_opacity_hover;
+        }
+
+        &:focus{
+            outline: 0 none;
+        }
+
+        &:focus ~ .ui-select-field__fieldFrame{
+            opacity: 1;
+            border-color: @ui_color_primary;
+        }
+
+        &::input-placeholder{
+            font-family: inherit;
+            font-size: inherit;
+            color:inherit;
+        }
+
+        &[type="password"]{
+            letter-spacing:1px;
+            &::input-placeholder{
+                letter-spacing: normal;
+            }
+        }
+
+        option{
+            color:#000;
+            background: #fff;
+        }
+
+    }
+
+
+    &.error &__dropDownIndicator,
+    &.error.focused:hover &__dropDownIndicator,
+    &.error.focused &__dropDownIndicator{
+        color: @ui_color_error;
+    }
+    &.error &__fieldFrame{
+        border-color: @ui_color_error;
+    } 
+
+} 
+
+
+
+
+

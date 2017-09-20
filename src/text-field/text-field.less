@@ -1,0 +1,151 @@
+@import (reference) '../variables.less';
+@import '../styles.less';
+
+@ui_Textfield_Border_Width: @ui_border_width;
+@ui_Textfield_Border_Color: currentColor;
+@ui_Textfield_Border_Radius: @ui_border_radius;
+@ui_Textfield_Hover_Border_Color: mix(@ui_color_primary, @ui_border_color, 80%);
+@ui_Textfield_Focus_Border_Color: @ui_color_primary;
+
+.ui-text-field{
+
+    .common();
+    .inlineBlock();
+    position: relative;
+    vertical-align: baseline;
+
+    &:not(.block){
+        margin-right: 1em;
+    }
+    &.block{
+        width:100%;
+    }
+
+    &.disabled{
+        opacity: .35;
+        cursor: default;
+    }
+
+    &__inside{
+        display: block;
+        position: relative;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    &__label{
+        display: inline-block;
+        position: relative;
+        padding-bottom: .5em;
+        padding-left: 0;
+        padding-right: 0;
+        pointer-events: all;
+    }
+
+    &__fieldContainer{
+        position: relative;
+    }
+
+    &.hasPrefix &__prefix{
+        line-height: inherit;
+        padding: ~'calc( @{ui_padding} - (@{ui_Textfield_Border_Width}))';
+        padding-left: ~'calc( @{ui_padding} * 2)';
+        padding-right:0;
+        border:@ui_Textfield_Border_Width solid transparent;
+        border-left: 0;
+        border-right: 0;
+    }
+    &.hasPrefix  &__field{
+        padding-left: .25em;
+    }
+    &.hasPrefix  &__fieldContainer{
+        display: flex;
+    }
+
+    &__fieldFrame{
+        pointer-events: none;
+        position: absolute;
+        display: block;
+        border:@ui_Textfield_Border_Width solid @ui_Textfield_Border_Color;
+        border-radius: @ui_Textfield_Border_Radius;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        opacity: @ui_border_opacity_normal;
+        transition: .25s;
+    }
+
+    &__field{
+        color: inherit;
+        border:0 none;
+        border-radius: 0;
+        font-size:inherit;
+        box-sizing:border-box;
+        appearance:none;
+        text-align: inherit;
+        
+        font-family: inherit;
+        width: 100%;
+        padding: ~'calc( @{ui_padding} - (@{ui_Textfield_Border_Width}))';
+        padding-left: ~'calc( @{ui_padding} * 2)';
+        padding-right: ~'calc( @{ui_padding} * 2)';
+        border:0 none;
+        background-color: transparent;
+        border:@ui_Textfield_Border_Width solid transparent;
+        border-radius: @ui_Textfield_Border_Radius;
+        pointer-events: all;
+        line-height: inherit;
+        box-shadow: 0 none;
+        resize: vertical;
+
+        &:required {
+            box-shadow:none !important;
+        }
+        &:invalid {
+            box-shadow:0 none !important;
+        }
+
+        &:hover ~ .ui-text-field__fieldFrame{
+            opacity: @ui_border_opacity_hover;
+        }
+
+        &:focus{
+            outline: 0 none;
+        }
+
+        &:focus ~ .ui-text-field__fieldFrame{
+            opacity: 1;
+            border-color: @ui_color_primary;
+        }
+
+        &::input-placeholder{
+            font-family: inherit;
+            font-size: inherit;
+            color:inherit;
+        }
+
+        &[type="password"]{
+            letter-spacing:1px;
+            &::input-placeholder{
+                letter-spacing: normal;
+            }
+        }
+
+    }
+
+    &__field[type="search"]{
+        box-sizing: inherit;
+        appearance: inherit;
+    }
+
+    &.error &__fieldFrame{
+        border-color: @ui_color_error;
+    }
+
+    .ui__errorMessage{
+   
+    }
+
+} 
+

@@ -1,0 +1,257 @@
+@import (reference) '../variables.less';
+@import '../styles.less';
+
+@ui_radiogroup_BorderWidth: @ui_border_width;
+@ui_radiogroup_BorderColor: currentColor;
+@ui_radiogroup_BorderRadius: @ui_border_radius;
+@ui_radiogroup_HoverBorderColor: mix(@ui_color_primary, @ui_border_color, 80%);
+@ui_radiogroup_FocusBorderColor: @uiColorPrimary;
+
+.ui-radio-group{
+
+    .common();
+    position: relative;
+    vertical-align: top;
+    text-align: left;
+
+    &.block{
+        display: block;
+    }
+
+
+    &.disabled{
+        opacity: .35;
+        cursor: default;
+        pointer-events: none;
+    }
+
+    .inside{
+        display: block;
+        position: relative;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .required .label:after{
+        content: '*';
+        color:@ui_color_error;
+    }
+
+
+
+    .fieldContainer{
+        position: relative;
+        &:after{
+            color:  @ui_radiogroup_BorderColor;
+            content:'';
+            width: .5em;
+            height: .5em;
+            position: absolute;
+            right: .2em;
+            top: .4em;
+            margin-top: @ui_padding;
+            margin-right: @ui_padding * 2;
+            border-bottom: @ui_radiogroup_BorderWidth solid currentColor;
+            border-right: @ui_radiogroup_BorderWidth solid currentColor;
+            transform: rotate(45deg);
+            pointer-events: none;
+            transition: .25s;
+        }
+
+        .ui-radio-group.focused &:after{
+            color: @ui_color_primary;
+        }
+    }
+
+    &:hover .fieldContainer:after{
+        color: @ui_radiogroup_HoverBorderColor;
+    }
+
+    .dummyInput{
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .field{
+        border:0 none;
+        border-radius: 0;
+        font-size:inherit;
+        box-sizing:border-box;
+        -webkit-appearance:none;
+        -moz-appearance:none;
+        -ms-appearance:none;
+        appearance:none;
+
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        
+        font-family: inherit;
+        width: 100%;
+        padding: ~'calc(@{ui_padding} - (@{ui_radiogroup_BorderWidth}))';
+        padding-left: @ui_padding * 2;
+        padding-right: @ui_padding * 2;
+        border:0 none;
+        background-color:transparent;
+        border:@ui_radiogroup_BorderWidth solid @ui_radiogroup_BorderColor;
+        border-radius: @ui_radiogroup_BorderRadius;
+        pointer-events: all;
+        transition: border .25s;
+
+        line-height: inherit;
+
+        box-shadow: 0 none;
+
+        &:hover{
+            outline: 0 none;
+            border-color: @ui_radiogroup_HoverBorderColor;
+        }
+
+        &:focus{
+            outline: 0 none;
+            border-color: @ui_color_primary;
+        }
+
+        &::input-placeholder{
+            font-family: inherit;
+            font-size: inherit;
+            color:inherit;
+        }
+
+        &[type="password"]{
+            letter-spacing:1px;
+            &::input-placeholder{
+                letter-spacing: normal;
+            }
+        }
+
+        option{
+            color:#000;
+        }
+
+    }
+
+
+    &.error .fieldContainer:after,
+    &.error.focused:hover .fieldContainer:after,
+    &.error.focused .fieldContainer:after{
+        color: @ui_color_error;
+    }
+    &.error .field{
+        border-color: @ui_color_error;
+    } 
+
+
+    .fieldset{
+        border:0 none;
+        padding:0;
+        margin:0;
+    }
+
+    .group{
+        &,
+        li{
+            list-style: none;
+            margin:0;
+            padding:0;
+            position: relative;
+            display: block;
+        }
+        li{
+            padding-bottom: .5em;
+        }
+        li:last-child{
+            padding-bottom: 0;
+        }
+    }
+
+    .radio{
+        opacity: 0;
+        position: absolute;
+    }
+
+    .indicatorContainer{
+        position: absolute;
+        left: 0;
+        top: 0;
+        &:after{
+            content: "\00a0";
+        }
+    }
+
+    .indicator{
+        display: block;
+        width: 1em;
+        height: 1em;
+        
+        pointer-events: all;
+        transition: border .25s;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        margin-top: -.55em;
+        
+       
+        &:before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            border:@ui_radiogroup_BorderWidth solid currentColor;
+            border-radius: 1em;
+            opacity: var(--ui-border-opacity-normal);
+            transition:.25s;
+        }
+        &:after{
+            display: block;
+            content:'';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            right: 3px;
+            bottom: 3px;
+            background-color:currentColor;
+            transition: .25s;
+            border-radius: 100%;
+            transform: scale(0);
+        }
+
+        &.active:after{
+            transform: scale(1);
+        }
+    }
+
+    .error .indicator{
+        border-color: @ui_color_error;
+        &:after{
+            background-color: @ui_color_error;
+        }
+    }
+
+
+    .radio:focus ~ .indicatorContainer .indicator{
+        border-color: @ui_color_primary;
+        &:after{
+            background-color: @ui_color_primary;
+        }
+    }
+
+
+    .labelText{
+        padding-left: 1.5em;
+        display: block;
+        &.active{
+            font-weight: bold;
+        }
+    }
+
+    .labelText:hover ~ .indicatorContainer .indicator:before{
+        opacity: var(--ui-border-opacity-hover);
+    }
+
+} 
